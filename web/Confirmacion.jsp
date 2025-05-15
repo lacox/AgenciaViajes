@@ -33,7 +33,7 @@
                 <p>Gracias por confiar en Agencia de Viajes XYZ.</p>
                 <p>Le hemos enviado un correo con los detalles de su reserva.</p>
             </aside>
-            <footer id="pie">&copy; 2024 Agencia de Viajes XYZ</footer>
+            <footer id="pie">&copy; 2025 Agencia de Viajes XYZ</footer>
         </div>
     </body>
 </html>
