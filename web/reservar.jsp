@@ -6,6 +6,7 @@
 
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
+<%@ page import="BD.ConexionBD" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -48,8 +49,8 @@
                         PreparedStatement ps = null;
                         ResultSet rs = null;
                         try {
-                            Class.forName("com.mysql.cj.jdbc.Driver");
-                            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/agencia?useSSL=false&serverTimezone=UTC", "root", "");
+                            // Usar la clase ConexionBD para obtener la conexión
+                            conn = BD.ConexionBD.obtenerConexion();
                             ps = conn.prepareStatement("SELECT DISTINCT destino FROM vuelos");
                             rs = ps.executeQuery();
                             boolean hayDestinos = false;
