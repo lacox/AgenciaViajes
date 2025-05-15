@@ -47,8 +47,8 @@
                 </article>
             </section>
             <aside id="columna">
-                <blockquote>Ofertas especiales de temporada</blockquote>
-                <blockquote>Atención personalizada 24/7</blockquote>
+                <blockquote>Descubre nuestras promociones exclusivas para esta temporada.</blockquote>
+                <blockquote>Asesoría personalizada disponible las 24 horas, los 7 días de la semana.</blockquote>
             </aside>
             <footer id="pie">
                 Derechos reservados &COPY;2025 Agencia de Viajes
