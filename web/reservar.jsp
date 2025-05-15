@@ -35,6 +35,8 @@
                         
                         <label for="destino">Destino: </label><br>
                         <input type="text" name="destino" required><br><br>
+                        
+                        <input type="submit" value="Buscar Vuelos">
                     </form>
                 </article>
             </section>
