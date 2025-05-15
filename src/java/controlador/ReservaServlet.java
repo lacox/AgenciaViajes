@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 
 public class ReservaServlet extends HttpServlet {
-    /**
+    /*
      * Handles the HTTP <code>POST</code> method.
      *
      * @param request servlet request
@@ -25,6 +25,6 @@ public class ReservaServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String
+        
     }
 }
