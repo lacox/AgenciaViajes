@@ -4,12 +4,14 @@
     Author     : Angel David Salas Mendoza
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*" %>
+<%@ page import="BD.ConexionBD" %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <<link rel="stylesheet" href="estilos.css"/>
+        <link rel="stylesheet" href="estilos.css"/>
         <title>Reservar Pasaje</title>
     </head>
     <body>
@@ -44,10 +46,37 @@
                 <h3>Destinos Disponibles</h3>
                 <p>Consulta los destinos a los que puedes viajar con nosotros:</p>  
                 <ul>
-                    <li>Playa del Carmen</li>
-                    <li>Barcelona</li>
-                    <li>Tokio</li>
-                    <li>Nueva York</li>
+                    <%
+                        Connection conn = null;
+                        PreparedStatement ps = null;
+                        ResultSet rs = null;
+                        try {
+                            // Usar la clase ConexionBD para obtener la conexión
+                            conn = BD.ConexionBD.obtenerConexion();
+                            ps = conn.prepareStatement("SELECT DISTINCT destino FROM vuelos");
+                            rs = ps.executeQuery();
+                            boolean hayDestinos = false;
+                            while (rs.next()) {
+                                hayDestinos = true;
+                    %>
+                                <li><%= rs.getString("destino") %></li>
+                    <%
+                            }
+                            if (!hayDestinos) {
+                    %>
+                                <li>No hay destinos disponibles en este momento.</li>
+                    <%
+                            }
+                        } catch (Exception e) {
+                    %>
+                            <li style="color:red;">Error al cargar destinos: <%= e.getMessage() %></li>
+                    <%
+                        } finally {
+                            if (rs != null) try { rs.close(); } catch (Exception e) {}
+                            if (ps != null) try { ps.close(); } catch (Exception e) {}
+                            if (conn != null) try { conn.close(); } catch (Exception e) {}
+                        }
+                    %>
                 </ul>
             </aside>
             <footer id="pie">
