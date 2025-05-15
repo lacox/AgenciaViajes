@@ -38,6 +38,10 @@
                     </form>
                 </article>
             </section>
+            <aside id="columna">
+                <blockquote>Destinos</blockquote>
+
+            </aside>
             <footer id="pie">
                 Derechos reservados &COPY; 2025 Agencia de Viajes
             </footer>
