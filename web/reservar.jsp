@@ -28,13 +28,13 @@
                 <article>
                     <form action="ReservaServlet" method="post">
                         <label for="nombre">Nombre: </label><br>
-                        <input type="text" name="nombre" required>
+                        <input type="text" name="nombre" required><br><br>
                         
                         <label for="origen">Origen: </label><br>
-                        <input type="text" name="origen" required>
+                        <input type="text" name="origen" required><br><br>
                         
                         <label for="destino">Destino: </label><br>
-                        <input type="text" name="destino" required>
+                        <input type="text" name="destino" required><br><br>
                     </form>
                 </article>
             </section>
