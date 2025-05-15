@@ -3,7 +3,7 @@ import objects.Vuelo;
 import objects.VueloDAO;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -25,6 +25,14 @@ public class ReservaServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String origen = request.getParameter("origen");
+        String destino = request.getParameter("destino");
+        String nombre = request.getParameter("nombre");
         
+        List<Vuelo> vuelos = VueloDAO.buscarVuelos(origen, destino);
+        
+        request.setAttribute("vuelos", vuelos);
+        request.setAttribute("nombre", nombre);
+        request.getRequestDispatcher("vuelos.jsp").forward(request, response);
     }
 }
