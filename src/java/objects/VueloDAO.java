@@ -36,4 +36,24 @@ public class VueloDAO {
         }
         return lista;
     }
+    
+    public static Vuelo obtenerVueloPorId(int id) {
+        String sql = "SELECT * FROM vuelos WHERE id = ?";
+        try (Connection con = ConexionBD.obtenerConexion(); PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return new Vuelo(
+                        rs.getInt("id"),
+                        rs.getString("origen"),
+                        rs.getString("destino"),
+                        rs.getDouble("precio"),
+                        rs.getInt("cupo_maximo")
+                );
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

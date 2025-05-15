@@ -57,7 +57,9 @@ public class pago extends HttpServlet {
             out.println("</header>");
             out.println("<section id='seccion'>");
             out.println("<article>");
-            out.println("<form action='pago' method='post'>");
+            out.println("<form action='ConfirmacionServlet' method='post'>");
+            out.println("<input type='hidden' name='nombre' value='" + nombre + "'>");
+            out.println("<input type='hidden' name='vueloId' value='" +vueloId + "'>");
             out.println("<div class='seleccionar'>");
             out.println("<h3>Método de Pago</h3>");
             out.println("<label><input type='radio' name='metodoPago' value='tarjeta' checked> Tarjeta Bancaria</label> ");

@@ -4,13 +4,19 @@
         <servlet-name>ReservaServlet</servlet-name>
         <servlet-class>controlador.ReservaServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ConfirmacionServlet</servlet-name>
+        <servlet-class>controlador.ConfirmacionServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ReservaServlet</servlet-name>
         <url-pattern>/ReservaServlet</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ConfirmacionServlet</servlet-name>
+        <url-pattern>/ConfirmacionServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
-        <session-timeout>
-            30
-        </session-timeout>
+        <session-timeout>30</session-timeout>
     </session-config>
 </web-app>
