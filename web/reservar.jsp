@@ -39,8 +39,14 @@
                 </article>
             </section>
             <aside id="columna">
-                <blockquote>Destinos</blockquote>
-
+                <h3>Destinos Disponibles</h3>
+                <p>Consulta los destinos a los que puedes viajar con nosotros:</p>  
+                <ul>
+                    <li>Playa del Carmen</li>
+                    <li>Barcelona</li>
+                    <li>Tokio</li>
+                    <li>Nueva York</li>
+                </ul>
             </aside>
             <footer id="pie">
                 Derechos reservados &COPY; 2025 Agencia de Viajes
