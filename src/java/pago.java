@@ -99,7 +99,7 @@ public class pago extends HttpServlet {
             out.println("<footer id='pie'>&copy; 2024 Agencia de Viajes XYZ</footer>");
             out.println("</div>");
             out.println("</body>");
-            out.println("</html>");
+            out.println("</html>"); //como ves asi lo dejo?
         }
     }
 
