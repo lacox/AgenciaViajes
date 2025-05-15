@@ -52,3 +52,5 @@
         </div>
     </body>
 </html>
+
+@WebServlet(urlPatterns = {"/pago"})

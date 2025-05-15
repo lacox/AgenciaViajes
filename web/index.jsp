@@ -23,7 +23,7 @@
                 <ul>
                     <li><a href="index.jsp">Inicio</a></li>
                     <li><a href="reservar.jsp">Reservar Pasaje</a></li>
-                    <li><a href="#">Soporte</a></li>
+                    <li><a href="soporte.jsp">Soporte</a></li>
                 </ul>
             </nav>
             <section id="seccion">
@@ -43,7 +43,6 @@
                         <img class="img1" src="img/playa.jpg" alt="Playa"/>
                         <figcaption>Disfruta de nuestras promociones</figcaption>
                     </figure>
-                    <footer>NO VOY A PONER ESTO</footer>
                 </article>
             </section>
             <aside id="columna">
