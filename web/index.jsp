@@ -43,7 +43,6 @@
                         <img class="img1" src="img/playa.jpg" alt="Playa"/>
                         <figcaption>Disfruta de nuestras promociones</figcaption>
                     </figure>
-                    <footer>NO VOY A PONER ESTO</footer>
                 </article>
             </section>
             <aside id="columna">
