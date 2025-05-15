@@ -27,7 +27,7 @@ public class VueloDAO {
                     rs.getString("origen"),
                     rs.getString("destino"),
                     rs.getDouble("precio"),
-                    rs.getInt("cupoMaximo")
+                    rs.getInt("cupo_maximo")
                 );
                 lista.add(v);
             }

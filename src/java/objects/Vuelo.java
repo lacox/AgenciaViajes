@@ -4,11 +4,11 @@ package objects;
  * @author Angel David Salas Mendoza
  */
 public class Vuelo {
-    private int id;
-    private int cupoMaximo;
-    private String origen;
-    private String destino;
-    private double precio;
+    private final int id;
+    private final int cupoMaximo;
+    private final String origen;
+    private final String destino;
+    private final double precio;
     
     public Vuelo(int id, String origen, String destino, double precio, int cupoMaximo){
         this.id = id;
