@@ -23,7 +23,7 @@
                 <ul>
                     <li><a href="index.jsp">Inicio</a></li>
                     <li><a href="reservar.jsp">Reservar Pasaje</a></li>
-                    <li><a href="#">Soporte</a></li>
+                    <li><a href="soporte.jsp">Soporte</a></li>
                 </ul>
             </nav>
             <section id="seccion">
@@ -95,6 +95,9 @@
                         </select><br><br>
                         <input type="submit" value="Buscar Vuelos">
                     </form>
+                    <span id="ruta-warning" style="display:none;color:orange;">
+                        La ruta seleccionada no es válida o no existe. Por favor, selecciona una combinación válida de origen y destino.
+                    </span>
                 </article>
             </section>
             <aside id="columna">
@@ -133,5 +136,56 @@
                 Derechos reservados &COPY; 2025 Agencia de Viajes
             </footer>
         </div>
+        <%
+            // Cargar todas las rutas válidas en un array de JavaScript
+            StringBuilder rutasValidas = new StringBuilder("[");
+            try {
+                conn = ConexionBD.obtenerConexion();
+                ps = conn.prepareStatement("SELECT origen, destino FROM vuelos");
+                rs = ps.executeQuery();
+                boolean primero = true;
+                while (rs.next()) {
+                    if (!primero) rutasValidas.append(",");
+                    rutasValidas.append("{o:'")
+                        .append(rs.getString("origen").replace("'", "\\'"))
+                        .append("',d:'")
+                        .append(rs.getString("destino").replace("'", "\\'"))
+                        .append("'}");
+                    primero = false;
+                }
+            } catch (Exception e) {
+                // Ignorar aquí, ya que la validación es solo de ayuda visual
+            } finally {
+                if (rs != null) try { rs.close(); } catch (Exception e) {}
+                if (ps != null) try { ps.close(); } catch (Exception e) {}
+                if (conn != null) try { conn.close(); } catch (Exception e) {}
+            }
+            rutasValidas.append("]");
+        %>
+        <script>
+            const rutasValidas = <%= rutasValidas.toString() %>;
+            function validarRuta() {
+                const origen = document.querySelector('select[name="origen"]').value;
+                const destino = document.querySelector('select[name="destino"]').value;
+                const warning = document.getElementById('ruta-warning');
+                const existe = rutasValidas.some(r => r.o === origen && r.d === destino);
+                if (!existe) {
+                    warning.style.display = 'block';
+                    return false;
+                } else {
+                    warning.style.display = 'none';
+                    return true;
+                }
+            }
+            document.addEventListener('DOMContentLoaded', function() {
+                document.querySelector('form').addEventListener('submit', function(e) {
+                    if (!validarRuta()) {
+                        e.preventDefault();
+                    }
+                });
+                document.querySelector('select[name="origen"]').addEventListener('change', validarRuta);
+                document.querySelector('select[name="destino"]').addEventListener('change', validarRuta);
+            });
+        </script>
     </body>
 </html>

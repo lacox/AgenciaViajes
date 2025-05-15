@@ -23,7 +23,7 @@
                 <ul>
                     <li><a href="index.jsp">Inicio</a></li>
                     <li><a href="reservar.jsp">Reservar Pasaje</a></li>
-                    <li><a href="#">Soporte</a></li>
+                    <li><a href="soporte.jsp">Soporte</a></li>
                 </ul>
             </nav>
             <section id="seccion">
