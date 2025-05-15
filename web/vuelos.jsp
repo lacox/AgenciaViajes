@@ -32,7 +32,7 @@
                         List<Vuelo> vuelos = (List<Vuelo>) request.getAttribute("vuelos");
                         String nombre = (String) request.getAttribute("nombre");
                     %>
-                    <form action="PagoServlet" method="POST">
+                    <form action="pago" method="POST">
                         <input type="hidden" name="nombre" value="<%= nombre %>">
                         <label>Selecciona un vuelo: </label><br>
                         <select name="vueloId" required>
@@ -52,3 +52,5 @@
         </div>
     </body>
 </html>
+
+@WebServlet(urlPatterns = {"/pago"})
